@@ -1,0 +1,8 @@
+"Status","Start Time","Stop Time","Duration in ms","Parent Suite","Suite","Sub Suite","Test Class","Test Method","Name","Description"
+"broken","Wed Dec 27 19:09:02 YEKT 2023","Wed Dec 27 19:09:02 YEKT 2023","415","tests","test_courier_registration","","","","Курьера можно создать",""
+"failed","Wed Dec 27 19:09:01 YEKT 2023","Wed Dec 27 19:09:02 YEKT 2023","465","tests","test_courier_login","","","","Вход курьера с неверными учетными данными",""
+"passed","Wed Dec 27 19:09:00 YEKT 2023","Wed Dec 27 19:09:01 YEKT 2023","839","tests","test_courier_login","","","","Успешный вход курьера в систему",""
+"broken","Wed Dec 27 19:09:03 YEKT 2023","Wed Dec 27 19:09:03 YEKT 2023","1","tests","test_order_list","","","","Получение списка заказов",""
+"failed","Wed Dec 27 19:09:03 YEKT 2023","Wed Dec 27 19:09:03 YEKT 2023","751","tests","test_courier_registration","","","","Нельзя создать двух одинаковых курьеров",""
+"passed","Wed Dec 27 19:09:02 YEKT 2023","Wed Dec 27 19:09:03 YEKT 2023","375","tests","test_courier_registration","","","","Чтобы создать курьера, нужно передать в ручку все обязательные поля",""
+"broken","Wed Dec 27 19:09:03 YEKT 2023","Wed Dec 27 19:09:03 YEKT 2023","0","tests","test_order_creation","","","","Успешное создание заказа",""
