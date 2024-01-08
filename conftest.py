@@ -1,11 +1,9 @@
-import pytest
-from helpers.api_helpers import BASE_URL
-
-"""
-Фикстура для передачи базового URL в тесты
-"""
+import allure
+from helpers.api_helpers import register_courier, login_courier
 
 
-@pytest.fixture(scope="session", autouse=True)
-def base_url():
-    return BASE_URL
+@allure.title("Успешный вход курьера в систему")
+def successful_courier_login():
+    courier_credentials = register_courier()
+    response = login_courier(courier_credentials)
+    return response
