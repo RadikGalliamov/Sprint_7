@@ -1,7 +1,7 @@
 import allure
 import requests
 from helpers.api_helpers import register_courier
-from data import COURIER_URL, TestDataRegisterCourier
+from data import TestDataUrl, TestDataRegisterCourier
 
 
 class TestCourierRegistration:
@@ -18,7 +18,7 @@ class TestCourierRegistration:
         assert response[
                    "response"].status_code == 400, f"Ожидался код состояния 400, но был получен {response.status_code}. Ответ: {response.text}"
         assert "Недостаточно данных для создания учетной записи" in response[
-            "response"].text, "Текст ошибки не соответствует ожидаемому"
+            "response"].text, f"Текст ошибки {response.text} не соответствует тексту 'Недостаточно данных для создания учетной записи'"
 
     @allure.title("Чтобы создать курьера, нужно передать в ручку все обязательные поля - пароль")
     def test_missing_data_courier_registration_password(self):
@@ -26,11 +26,11 @@ class TestCourierRegistration:
         assert response[
                    "response"].status_code == 400, f"Ожидался код состояния 400, но был получен {response.status_code}. Ответ: {response.text}"
         assert "Недостаточно данных для создания учетной записи" in response[
-            "response"].text, "Текст ошибки не соответствует ожидаемому"
+            "response"].text, f"Текст ошибки {response.text} не соответствует тексту 'Недостаточно данных для создания учетной записи'"
 
     @allure.title("Нельзя создать двух одинаковых курьеров")
     def test_duplicate_login_courier_registration(self):
         first_courier = register_courier()
-        response = requests.post(COURIER_URL, data=first_courier)
+        response = requests.post(TestDataUrl.COURIER_URL, data=first_courier)
         assert response.status_code == 409, f"Ожидался код состояния 409, но был получен {response.status_code}. Ответ: {response.text}"
-        assert response.json()["message"] == "Этот логин уже используется", "Текст ошибки не соответствует ожидаемому"
+        assert response.json()["message"] == "Этот логин уже используется", "Текст ошибки не соответствует ожидаемому 'Этот логин уже используется'"
